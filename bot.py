@@ -3,6 +3,7 @@ from telegram import Update, BotCommand
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from gtts import gTTS
 import os
+import datetime
 
 # Enable logging to see errors and bot activity
 logging.basicConfig(
@@ -19,9 +20,28 @@ def get_token(file_path):
         logger.error(f"Token file not found at: {file_path}")
         return None
 
+# Function to log user interactions
+def log_user_interaction(user, text):
+    user_id = user.id
+    log_dir = "user_logs"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
+    file_path = os.path.join(log_dir, f"{user_id}.txt")
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    with open(file_path, 'a') as f:
+        if os.path.getsize(file_path) == 0:
+            f.write(f"User ID: {user.id}\n")
+            f.write(f"Username: {user.username}\n")
+            f.write(f"First Name: {user.first_name}\n")
+            f.write(f"Last Name: {user.last_name}\n\n")
+        f.write(f"[{timestamp}] {text}\n")
+
 # Define the handler for the /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a welcome message when the /start command is issued."""
+    log_user_interaction(update.message.from_user, "/start")
     await update.message.reply_text('Hello! I am a Text-to-Speech bot. Send me any text, and I will convert it to an audio file for you.')
 
 # Define the handler for text messages
@@ -30,6 +50,8 @@ async def text_to_speech(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     user_text = update.message.text
     if not user_text:
         return
+
+    log_user_interaction(update.message.from_user, user_text)
 
     # Use user ID to create a unique filename to avoid conflicts
     user_id = update.message.from_user.id

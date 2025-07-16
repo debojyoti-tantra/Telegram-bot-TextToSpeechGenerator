@@ -6,6 +6,7 @@ This is a simple yet powerful Telegram bot that converts text messages into spee
 ## Features
 
 - **Text-to-Speech Conversion**: Converts any text message into a high-quality audio file.
+- **User Interaction Logging**: Keeps a log of user interactions, including messages sent to the bot, for administrative purposes.
 - **Easy to Use**: Simply send a message to the bot, and it will reply with the audio.
 - **/start Command**: A welcoming message to guide new users.
 - **Command Suggestions**: Suggests the `/start` command when the user types `/`.
@@ -29,7 +30,14 @@ Before you begin, ensure you have the following installed:
 2.  **Create a Telegram Bot**:
 
     - Talk to the [BotFather](https://t.me/BotFather) on Telegram to create a new bot.
+    - start the bot and send it `/start`.
+    - The bot will reply with a welcome message.
+    - Send the bot `/newbot` and follow the instructions.
+    - <img src="./ss.jpg" alt="BotFather" width="100%">
+    - Choose a name for your bot.
+    - Enter a username for your bot.
     - You will receive a token for your bot. Keep it safe.
+    - Never share your token with anyone. Otherwise, anyone can control your bot.
 
 3.  **Set up your bot token**:
 
@@ -59,6 +67,12 @@ The bot will start polling for new messages. To stop the bot, press `Ctrl-C` in 
 3.  **Send any text message** to the bot.
 4.  The bot will reply with an **audio file** of the text you sent.
 
-## License
+## User Logging
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This bot includes a feature to log user interactions for administrative and debugging purposes. When a user interacts with the bot, a log file is created in the `user_logs` directory.
+
+-   **Log File**: A separate log file is created for each user, named after their unique Telegram User ID (e.g., `123456789.txt`).
+-   **User Information**: The log file contains the user's ID, username, first name, and last name.
+-   **Message Logging**: All messages sent by the user to the bot are logged with a timestamp.
+
+This feature is enabled by default and helps in monitoring the bot's usage and troubleshooting any issues.

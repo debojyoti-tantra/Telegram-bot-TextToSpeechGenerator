@@ -1,0 +1,10 @@
+User ID: 5618909351
+Username: None
+First Name: Sumanta
+Last Name: Barman
+
+[2025-07-16 23:33:26] /start
+[2025-07-16 23:33:31] Hii
+[2025-07-16 23:33:48] Ki koris
+[2025-07-16 23:34:56] Kalke college jabi?
+[2025-07-16 23:35:15] Answer de

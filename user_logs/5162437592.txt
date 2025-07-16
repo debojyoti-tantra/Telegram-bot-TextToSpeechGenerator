@@ -1,0 +1,10 @@
+User ID: 5162437592
+Username: None
+First Name: Payel
+Last Name: Roy
+
+[2025-07-16 23:04:37] /start
+[2025-07-16 23:05:21] Hello
+[2025-07-16 23:06:25] Payel
+[2025-07-16 23:08:32] Tantra
+[2025-07-16 23:09:34] BB maam kal class nio na
