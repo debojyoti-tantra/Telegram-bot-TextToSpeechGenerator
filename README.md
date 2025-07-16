@@ -23,7 +23,7 @@ Before you begin, ensure you have the following installed:
 
     ```bash
     git clone https://github.com/debojyoti-tantra/Telegram-bot-TextToSpeechGenerator.git
-    cd your-repository-name
+    cd Telegram-bot-TextToSpeechGenerator
     ```
 
 2.  **Create a Telegram Bot**:
